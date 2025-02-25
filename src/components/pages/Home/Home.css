@@ -1,0 +1,46 @@
+.home {
+  width: 100%;
+  height: calc(100vh - 65px);
+  background-image: url(img/wmremove-transformed.jpeg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_banner {
+  width: 80%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+}
+
+.home_title {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.home_suntitle {
+  font-size: 18px;
+}
+
+.home__button {
+  width: 200px;
+  height: 35px;
+  border: none;
+  background-color: rgb(30, 109, 255);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: ease-in-out 0.3s;
+}
+
+.home__button:hover {
+  background-color: rgb(0, 89, 255);
+}

@@ -1,18 +1,23 @@
-import {Menu} from "../../common/Menu/Menu"
-import {Banner} from "../../common/Banner/Banner"
-import {Acerca} from "../../common/Acerca/Acerca"
+import React from 'react'
+import "./Home.css"
+import PlacesToReleax from '../../commons/PlacesToReleax/PlacesToReleax'
+import SpecialOffers from '../../commons/SpecialOffers/SpecialOffers'
 
-export function Home(){
-
-    return(
-
-        <>
-
-            <Menu></Menu>
-            <Banner></Banner>
-            <Acerca></Acerca>
-        
-        </>
-    )
-
+const Home = () => {
+  return (
+    <>
+      <div className='home'>
+        <div className='home_banner'>
+          <h1 className='home_title'>THE BEST FOR YOUR REST</h1>
+          <p className='home_suntitle'>Bungalow on the beach - Rangiroa Polynesia. </p>
+          <button className='home__button'>More information</button>
+        </div>
+      </div>
+      <PlacesToReleax />
+      <SpecialOffers />
+    </>
+  )
 }
+
+export default Home
+
