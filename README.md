@@ -3,7 +3,9 @@
 This project is a web application developed in React that allows users to search and book hotels. The main goal is to learn and practice fundamental React concepts while building a functional application. 
 
 <img width="946" alt="{34B4E732-55CA-4266-94B1-04D27B938C35}" src="https://github.com/user-attachments/assets/418cd8ea-d3af-4f10-b3e9-a79e2837a5ed" />
-![image](https://github.com/user-attachments/assets/4feda0de-6567-48f8-95c4-19852cbaa8af)
+<img width="946" alt="{34B4E732-55CA-4266-94B1-04D27B938C35}" src="https://github.com/user-attachments/assets/95f7bae4-98bd-4181-b4b0-2839b0bae89f" />
+
+
 
 # Characteristics
 - Search for hotels by location and dates.
