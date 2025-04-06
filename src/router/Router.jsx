@@ -7,6 +7,7 @@ import Header from '../components/commons/Header/Header'
 import NotFound from '../components/pages/NotFound/NotFound'
 import Footer from '../components/commons/Footer/Footer'
 
+
 const Router = () => {
   return (
     <>

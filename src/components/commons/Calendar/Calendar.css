@@ -1,0 +1,86 @@
+/* Calendar.css */
+
+.calendar-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.calendar-table__table-head {
+  background-color: #4a6bff;
+  color: white;
+}
+
+.calendar-table__days {
+  display: flex;
+}
+
+.calendar-table-day,
+.calendar-table-hour {
+  flex: 1;
+  min-width: 110px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.calendar-table-day {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.calendar-table__table-body {
+  background-color: white;
+}
+
+.calendar-table__hours {
+  display: flex;
+  transition: background-color 0.2s ease;
+}
+
+.calendar-table__hours:hover {
+  background-color: #f8f9fa;
+}
+
+.calendar-table-hour {
+  font-weight: 500;
+  color: #333;
+}
+
+.calendar-table-hour button {
+  background-color: #4a6bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 80%;
+  max-width: 100px;
+}
+
+.calendar-table-hour button:hover {
+  background-color: #3a5bef;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(58, 91, 239, 0.3);
+}
+
+.calendar-table-hour button:active {
+  transform: translateY(0);
+}
+
+/* Estilo para la celda de horas (primera columna) */
+.calendar-table__hours > .calendar-table-hour:first-child {
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+

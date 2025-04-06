@@ -1,0 +1,89 @@
+/* Booking.css */
+
+.booking-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .booking-zones_zone {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-zones_zone:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .booking-zones_image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .booking-zones_tittle {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 1rem 1.5rem 0.5rem;
+    font-weight: 600;
+  }
+  
+  .booking-zones_capacity {
+    color: #666;
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0rem 1.5rem 1.5rem;
+    align-self: flex-start;
+  }
+  
+  .booking-zones_description {
+    color: #666;
+    margin: 0 1.5rem 1.5rem;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  
+  .btn {
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #4a6bff;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3a5bef;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .booking-zones {
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+    
+    .booking-zones_zone {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
