@@ -1,5 +1,3 @@
-/* Calendar.css */
-
 .calendar-table {
   width: 100%;
   max-width: 1200px;
@@ -78,9 +76,20 @@
   transform: translateY(0);
 }
 
-/* Estilo para la celda de horas (primera columna) */
 .calendar-table__hours > .calendar-table-hour:first-child {
   font-weight: 600;
   background-color: #f8f9fa;
 }
 
+/* Botón reservado */
+.calendar-table-hour button.reserved {
+  background-color: #ff4d4f;
+  color: white;
+  cursor: not-allowed;
+}
+
+.calendar-table-hour button.reserved:hover {
+  background-color: #ff4d4f;
+  transform: none;
+  box-shadow: none;
+}

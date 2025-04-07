@@ -6,6 +6,7 @@ import Dashboard from '../components/pages/Dashboard/Dashboard'
 import Header from '../components/commons/Header/Header'
 import NotFound from '../components/pages/NotFound/NotFound'
 import Footer from '../components/commons/Footer/Footer'
+import FormularioReserva from '../components/commons/FormularioReserva/FormularioReserva'
 
 
 const Router = () => {
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path='/home' element={<Home />} />
         <Route path='/booking' element={<Booking />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/formulario-reserva' element={<FormularioReserva />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

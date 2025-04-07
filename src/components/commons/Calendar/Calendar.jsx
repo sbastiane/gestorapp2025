@@ -1,31 +1,51 @@
 import React, { useState, useEffect } from "react";
 import "./Calendar.css";
-import { calendar, zones } from "../../../data/data.js";
+import { calendar } from "../../../data/data.js";
+import { useNavigate } from "react-router-dom";
 
 const Calendar = ({ zoneId, zoneName }) => {
   const [days, setDays] = useState([]);
   const [hours, setHours] = useState([]);
-  const [reservations, setReservations] = useState([]);
+  const [reservations, setReservations] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     setDays(calendar[0]);
     setHours(calendar[1]);
-    
-    // Obtener reservas de la zona específica
-    const zone = zones.find(z => z.id === Number(zoneId));
-    setReservations(zone?.reservas || []);
-  }, [zoneId]);
+  }, []);
 
-  const reserve = (day, hour) => {
-    const newReservation = { day, hour, zone: zoneId };
-    alert(`Reserva confirmada para ${zoneName} el ${day} a las ${hour}`);
-    
-    // Aquí deberías actualizar el estado y posiblemente enviar a un backend
-    setReservations([...reservations, newReservation]);
+  useEffect(() => {
+    if (zoneName) {
+      // Para cada día, obtenemos las horas reservadas
+      const fetchReservations = async () => {
+        const newReservations = {};
+
+        for (const day of calendar[0]) {
+          try {
+            const res = await fetch(`http://localhost:3000/disponibilidad/${encodeURIComponent(zoneName)}/${day}`);
+            const data = await res.json();
+            newReservations[day] = data.ocupados || [];
+          } catch (error) {
+            console.error(`Error al cargar reservas para ${day}:`, error);
+            newReservations[day] = [];
+          }
+        }
+
+        setReservations(newReservations);
+      };
+
+      fetchReservations();
+    }
+  }, [zoneName]);
+
+  const reserveZone = (day, hour, zoneName) => {
+    navigate("/formulario-reserva", {
+      state: { day, hour, zoneName },
+    });
   };
 
   const isReserved = (day, hour) => {
-    return reservations.some(r => r.day === day && r.hour === hour);
+    return reservations[day]?.includes(hour);
   };
 
   return (
@@ -47,13 +67,15 @@ const Calendar = ({ zoneId, zoneName }) => {
             <tr className="calendar-table__hours" key={hour}>
               <td className="calendar-table-hour">{hour}</td>
               {days.map((day) => (
-                <td key={`${day}-${hour}`} className="calendar-table-hour">
+                <td key={day} className="calendar-table-hour">
                   {isReserved(day, hour) ? (
-                    <span className="reserved-badge">Reservado</span>
+                    <button className="calendar-button reserved" disabled>
+                      Reservado
+                    </button>
                   ) : (
-                    <button 
-                      onClick={() => reserve(day, hour)}
-                      className="reserve-button"
+                    <button
+                      className="calendar-button available"
+                      onClick={() => reserveZone(day, hour, zoneName)}
                     >
                       Reservar
                     </button>
