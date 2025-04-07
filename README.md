@@ -5,6 +5,7 @@ This project is a web application developed in React that allows users to search
 <img width="946" alt="{34B4E732-55CA-4266-94B1-04D27B938C35}" src="https://github.com/user-attachments/assets/418cd8ea-d3af-4f10-b3e9-a79e2837a5ed" />
 <img width="946" alt="{34B4E732-55CA-4266-94B1-04D27B938C35}" src="https://github.com/user-attachments/assets/95f7bae4-98bd-4181-b4b0-2839b0bae89f" />
 
+<img width="950" alt="image" src="https://github.com/user-attachments/assets/3a16de95-71f4-42c5-825f-e2c681c72ee6" />
 
 
 # Characteristics
