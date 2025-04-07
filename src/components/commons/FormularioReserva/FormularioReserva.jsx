@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { FiCalendar, FiClock, FiMapPin, FiUser, FiMail, FiPhone, FiCheck } from 'react-icons/fi';
+import './FormularioReserva.css';
 
 const FormularioReserva = () => {
     const [reservationDay, setReservationDay] = useState("");
     const [reservationHour, setReservationHour] = useState("");
     const [reservationZone, setReservationZone] = useState("");
-
     const [reservationEmail, setReservationEmail] = useState("");   
     const [reservationPhone, setReservationPhone] = useState("");
     const [reservationName, setReservationName] = useState("");
@@ -47,7 +48,7 @@ const FormularioReserva = () => {
 
             if (res.ok) {
                 alert("✅ Reserva realizada exitosamente.");
-                navigate("/"); // Redirige al dashboard u otra vista si deseas
+                navigate("/dashboard");
             } else {
                 alert(`⚠️ No se pudo hacer la reserva: ${data.mensaje}`);
             }
@@ -58,56 +59,75 @@ const FormularioReserva = () => {
     };
 
     return (
-        <div>
-            <h3 className='formulario-reserva__title'>Formulario de Reserva</h3>
-            <form className='formulario-reserva' onSubmit={handleSubmit}>
-                <label className='formulario-reserva__label'>Nombre:</label>
-                <input
-                    type="text"
-                    className='formulario-reserva__input'
-                    placeholder='Nombre'
-                    value={reservationName}
-                    onChange={(e) => setReservationName(e.target.value)}
-                    required
-                />
-                <br />
+        <div className="form-reserva-container">
+            <div className="form-reserva-card">
+                <h2 className="form-reserva-title">
+                    <FiCheck className="icon-title" /> Confirmar Reserva
+                </h2>
+                
+                <div className="reservation-details">
+                    <div className="detail-item">
+                        <FiMapPin className="detail-icon" />
+                        <span><strong>Zona:</strong> {reservationZone}</span>
+                    </div>
+                    <div className="detail-item">
+                        <FiCalendar className="detail-icon" />
+                        <span><strong>Día:</strong> {reservationDay}</span>
+                    </div>
+                    <div className="detail-item">
+                        <FiClock className="detail-icon" />
+                        <span><strong>Hora:</strong> {reservationHour}</span>
+                    </div>
+                </div>
 
-                <label className='formulario-reserva__label'>Email:</label>
-                <input
-                    type="email"
-                    className='formulario-reserva__input'
-                    placeholder='Email'
-                    value={reservationEmail}
-                    onChange={(e) => setReservationEmail(e.target.value)}
-                    required
-                />
-                <br />
+                <form className='formulario-reserva' onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label className='form-label'>
+                            <FiUser className="input-icon" /> Nombre Completo
+                        </label>
+                        <input
+                            type="text"
+                            className='form-input'
+                            placeholder='Ingresa tu nombre'
+                            value={reservationName}
+                            onChange={(e) => setReservationName(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <label className='formulario-reserva__label'>Teléfono:</label>
-                <input
-                    type="tel"
-                    className='formulario-reserva__input'
-                    placeholder='Teléfono'
-                    value={reservationPhone}
-                    onChange={(e) => setReservationPhone(e.target.value)}
-                    required
-                />
-                <br />
+                    <div className="form-group">
+                        <label className='form-label'>
+                            <FiMail className="input-icon" /> Email
+                        </label>
+                        <input
+                            type="email"
+                            className='form-input'
+                            placeholder='tucorreo@ejemplo.com'
+                            value={reservationEmail}
+                            onChange={(e) => setReservationEmail(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <label>Zona a reservar: </label>
-                <input type="text" readOnly value={reservationZone} />
-                <br />
+                    <div className="form-group">
+                        <label className='form-label'>
+                            <FiPhone className="input-icon" /> Teléfono
+                        </label>
+                        <input
+                            type="tel"
+                            className='form-input'
+                            placeholder='Número de contacto'
+                            value={reservationPhone}
+                            onChange={(e) => setReservationPhone(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <label>Hora de la reserva</label>
-                <input type="text" readOnly value={reservationHour} />
-                <br />
-
-                <label>Día de la reserva</label>
-                <input type="text" readOnly value={reservationDay} />
-                <br />
-
-                <button type="submit" className='formulario-reserva__button'>Reservar</button>
-            </form>
+                    <button type="submit" className='submit-button'>
+                        Confirmar Reserva
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

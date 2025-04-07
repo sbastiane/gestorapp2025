@@ -16,13 +16,14 @@ const Calendar = ({ zoneId, zoneName }) => {
 
   useEffect(() => {
     if (zoneName) {
-      // Para cada día, obtenemos las horas reservadas
       const fetchReservations = async () => {
         const newReservations = {};
 
         for (const day of calendar[0]) {
           try {
-            const res = await fetch(`http://localhost:3000/disponibilidad/${encodeURIComponent(zoneName)}/${day}`);
+            const res = await fetch(
+              `http://localhost:3000/disponibilidad/${encodeURIComponent(zoneName)}/${day}`
+            );
             const data = await res.json();
             newReservations[day] = data.ocupados || [];
           } catch (error) {
@@ -49,7 +50,7 @@ const Calendar = ({ zoneId, zoneName }) => {
   };
 
   return (
-    <div className="calendar-container">
+    <div className="calendar-container" id={`calendar-${zoneId}`}>
       <h3 className="calendar-zone">Zona: {zoneName}</h3>
       <table className="calendar-table">
         <thead className="calendar-table__table-head">
