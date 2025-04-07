@@ -47,14 +47,14 @@ const FormularioReserva = () => {
             const data = await res.json();
 
             if (res.ok) {
-                alert("✅ Reserva realizada exitosamente.");
+                alert("✅ Successful reservation.");
                 navigate("/dashboard");
             } else {
-                alert(`⚠️ No se pudo hacer la reserva: ${data.mensaje}`);
+                alert(`⚠️ The reservation could not be made: ${data.mensaje}`);
             }
         } catch (error) {
-            console.error("❌ Error al realizar la reserva:", error);
-            alert("Ocurrió un error al hacer la reserva.");
+            console.error("❌ Error when making the reservation:", error);
+            alert("An error occurred while making the reservation.");
         }
     };
 
@@ -62,33 +62,33 @@ const FormularioReserva = () => {
         <div className="form-reserva-container">
             <div className="form-reserva-card">
                 <h2 className="form-reserva-title">
-                    <FiCheck className="icon-title" /> Confirmar Reserva
+                    <FiCheck className="icon-title" /> Confirm Reservation
                 </h2>
                 
                 <div className="reservation-details">
                     <div className="detail-item">
                         <FiMapPin className="detail-icon" />
-                        <span><strong>Zona:</strong> {reservationZone}</span>
+                        <span><strong>Zone:</strong> {reservationZone}</span>
                     </div>
                     <div className="detail-item">
                         <FiCalendar className="detail-icon" />
-                        <span><strong>Día:</strong> {reservationDay}</span>
+                        <span><strong>Day:</strong> {reservationDay}</span>
                     </div>
                     <div className="detail-item">
                         <FiClock className="detail-icon" />
-                        <span><strong>Hora:</strong> {reservationHour}</span>
+                        <span><strong>Hour:</strong> {reservationHour}</span>
                     </div>
                 </div>
 
                 <form className='formulario-reserva' onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label className='form-label'>
-                            <FiUser className="input-icon" /> Nombre Completo
+                            <FiUser className="input-icon" /> Name
                         </label>
                         <input
                             type="text"
                             className='form-input'
-                            placeholder='Ingresa tu nombre'
+                            placeholder='Enter your name'
                             value={reservationName}
                             onChange={(e) => setReservationName(e.target.value)}
                             required
@@ -102,7 +102,7 @@ const FormularioReserva = () => {
                         <input
                             type="email"
                             className='form-input'
-                            placeholder='tucorreo@ejemplo.com'
+                            placeholder='youremail@example.com'
                             value={reservationEmail}
                             onChange={(e) => setReservationEmail(e.target.value)}
                             required
@@ -111,12 +111,12 @@ const FormularioReserva = () => {
 
                     <div className="form-group">
                         <label className='form-label'>
-                            <FiPhone className="input-icon" /> Teléfono
+                            <FiPhone className="input-icon" /> Phone
                         </label>
                         <input
                             type="tel"
                             className='form-input'
-                            placeholder='Número de contacto'
+                            placeholder='phone number'
                             value={reservationPhone}
                             onChange={(e) => setReservationPhone(e.target.value)}
                             required
@@ -124,7 +124,7 @@ const FormularioReserva = () => {
                     </div>
 
                     <button type="submit" className='submit-button'>
-                        Confirmar Reserva
+                        Confirm reservation
                     </button>
                 </form>
             </div>

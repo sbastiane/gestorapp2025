@@ -55,7 +55,7 @@ const Calendar = ({ zoneId, zoneName }) => {
       <table className="calendar-table">
         <thead className="calendar-table__table-head">
           <tr className="calendar-table__days">
-            <th className="calendar-table-day">Horas</th>
+            <th className="calendar-table-day">Hours</th>
             {days.map((day) => (
               <th className="calendar-table-day" key={day}>
                 {day}
@@ -71,14 +71,14 @@ const Calendar = ({ zoneId, zoneName }) => {
                 <td key={day} className="calendar-table-hour">
                   {isReserved(day, hour) ? (
                     <button className="calendar-button reserved" disabled>
-                      Reservado
+                      Reserved
                     </button>
                   ) : (
                     <button
                       className="calendar-button available"
                       onClick={() => reserveZone(day, hour, zoneName)}
                     >
-                      Reservar
+                      Reserve
                     </button>
                   )}
                 </td>

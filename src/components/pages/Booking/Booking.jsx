@@ -19,15 +19,15 @@ const Booking = () => {
     <div className="booking-zones">
       {residentialZones.map((zone) => (
         <div className="booking-zones_zone" key={zone.id}>
-          <img className="booking-zones_image" src={zone.imagen} alt={`Image of ${zone.nombre}`} />
-          <h2 className="booking-zones_tittle">{zone.nombre}</h2>
-          <p className="booking-zones_description">{zone.descripcion}</p>
-          <p className="booking-zones_capacity">Capacidad: {zone.capacidad}</p>
+          <img className="booking-zones_image" src={zone.image} alt={`Image of ${zone.name}`} />
+          <h2 className="booking-zones_tittle">{zone.name}</h2>
+          <p className="booking-zones_description">{zone.description}</p>
+          <p className="booking-zones_capacity">Capacity: {zone.capacity}</p>
           <button 
             className="btn btn-primary" 
             onClick={() => handleReserveClick(zone.id)}
           >
-            Reservar
+            Booking
           </button>
         </div>
       ))}

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "./PlacesToReleax.css";
 
-const PlacesToReleax = () => {
+const PlacesToReleax = forwardRef((props, ref) => {
   return (
-    <div className="place-to-relax">
+    <div className="place-to-relax" ref={ref}>
       <h2 className="place-to-relax__tittle">Places to Relax</h2>
       <div className="place-to-relax__gallery-container">
         <div className="place-to-relax__image">
@@ -35,6 +35,6 @@ const PlacesToReleax = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PlacesToReleax;

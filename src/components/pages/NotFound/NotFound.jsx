@@ -13,16 +13,16 @@ const NotFound = () => {
           <FiFrown size={80} />
         </div>
         <h1 className="not-found-title">404</h1>
-        <h2 className="not-found-subtitle">¡Página no encontrada!</h2>
+        <h2 className="not-found-subtitle">¡Page not found!</h2>
         <p className="not-found-text">
-          Lo sentimos, la página que estás buscando no existe o ha sido movida.
+        Sorry, the page you are looking for does not exist or has been moved.
         </p>
         <button 
           className="not-found-button"
           onClick={() => navigate("/")}
         >
           <FiHome className="button-icon" />
-          Volver al inicio
+          Back to Home
         </button>
       </div>
     </div>

@@ -27,30 +27,30 @@ const Dashboard = () => {
             className="back-button"
             onClick={() => setSelectedSpace(null)}
           >
-            <FiArrowLeft /> Volver a todas las zonas
+            <FiArrowLeft /> Back to the zones
           </button>
           <div className="zone-info">
-            <h2>{selectedSpace.nombre}</h2>
-            <p>{selectedSpace.descripcion}</p>
+            <h2>{selectedSpace.name}</h2>
+            <p>{selectedSpace.description}</p>
           </div>
           <Calendar 
             zoneId={selectedSpace.id} 
-            zoneName={selectedSpace.nombre} 
+            zoneName={selectedSpace.name} 
           />
         </div>
       ) : (
         <div className="all-zones-view">
-          <h2>Todas las zonas disponibles</h2>
+          <h2>Zones list</h2>
           <div className="zones-list">
             {zones.map((space) => (
               <div key={space.id} className="zone-card">
                 <div className="zone-header">
-                  <h3>{space.nombre}</h3>
-                  <p>{space.descripcion}</p>
+                  <h3>{space.name}</h3>
+                  <p>{space.description}</p>
                 </div>
                 <Calendar 
                   zoneId={space.id} 
-                  zoneName={space.nombre} 
+                  zoneName={space.name} 
                 />
               </div>
             ))}
